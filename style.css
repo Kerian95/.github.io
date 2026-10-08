@@ -118,3 +118,52 @@ body {
     from { opacity: 0; }
     to   { opacity: 1; }
 }
+
+html { scroll-behavior: smooth; }
+
+/* Menu : caché en haut, descend à l'ouverture */
+#menu {
+    background-color: rgba(13, 13, 18, 0.95);
+    border-bottom: 2px solid var(--violet);
+    transform: translateY(-100%);
+    transition: transform 0.8s;
+}
+#menu.visible { transform: translateY(0); }
+
+#menu .navbar-brand { color: var(--orange); font-weight: bold; }
+#menu .nav-link { color: var(--texte); transition: transform 0.3s, color 0.3s; }
+#menu .nav-link:hover { color: var(--orange); transform: scale(1.1); }
+
+/* Transition de l'accueil */
+#accueil { transition: opacity 0.8s, transform 0.8s; }
+#accueil.sortie { opacity: 0; transform: translateY(-60px); }
+
+/* Contenu : caché au départ */
+#site { display: none; opacity: 0; transition: opacity 0.8s; padding-top: 56px; }
+#site.affiche { display: block; }
+#site.visible { opacity: 1; }
+
+/* Sections */
+section { padding: 80px 0; }
+section[id] { scroll-margin-top: 70px; }
+section h2 { color: var(--orange); margin-bottom: 30px; }
+
+.encadre {
+    border-left: 4px solid var(--violet);
+    background-color: rgba(124, 58, 237, 0.15);
+    padding: 15px 20px;
+    border-radius: 8px;
+}
+
+.timeline { border-left: 3px solid var(--violet); padding-left: 20px; }
+.timeline-date { color: var(--orange); font-weight: bold; }
+
+.carte {
+    background-color: #16161f;
+    border: 1px solid var(--violet);
+    border-radius: 12px;
+    padding: 20px;
+    height: 100%;
+    transition: transform 0.3s;
+}
+.carte:hover { transform: scale(1.05); }

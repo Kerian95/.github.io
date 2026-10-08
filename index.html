@@ -15,6 +15,23 @@
         <link rel="icon" href="favicon.ico">
     </head>
     <body>
+        <nav id="menu" class="navbar navbar-expand-lg navbar-dark fixed-top">
+            <div class="container">
+                <a class="navbar-brand" href="#" id="retour-accueil">Kerian G</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#liens">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="liens">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item"><a class="nav-link" href="#profil">Profil</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#parcours">Parcours</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#competences">Compétences</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#realisations">Réalisations</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
         <header id="accueil">
             <div class="container">
                 <div class="row align-items-center">
@@ -24,7 +41,7 @@
                         <h1>Kerian</h1>
                         <p class="titre">Étudiant en informatique</p>
                         <p class="formation">1re année BTS SIO option SLAM</p>
-                        <a href="#profil" class="bouton">En savoir plus</a>
+                        <a href="#" id="btn-savoir" class="bouton">En savoir plus</a>
                     </div>
 
                     <div class="col-md-5 text-center">
@@ -38,9 +55,65 @@
                 <div class="eclipse">
                     <div class="lune"></div>
                 </div>
-                <h2 class="intro-nom">Kerian G</h2>
+                <h2 class="intro-nom">Kerian</h2>
             </div>
         </header>
+        <main id="site">
+
+            <section id="profil">
+                <div class="container">
+                    <h2>Profil</h2>
+                    <p>Écris ici ton résumé : ton parcours, ta motivation, tes objectifs et les métiers visés.</p>
+                    <div class="encadre">
+                        Je recherche un stage en développement d'applications (option SLAM)
+                        de 4 à 5 semaines, à réaliser entre mai et août 2027.
+                    </div>
+                </div>
+            </section>
+
+            <section id="parcours">
+                <div class="container">
+                    <h2>Parcours de formation</h2>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-date">2026 - en cours</div>
+                            <h5>BTS Services informatiques aux organisations, option SLAM</h5>
+                            <p>CNED, à distance</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="competences">
+                <div class="container">
+                    <h2>Compétences techniques</h2>
+                    <div class="row">
+                        <div class="col-md-4 mb-3"><div class="carte"><h5>Développement</h5><p>HTML, CSS, JavaScript, C</p></div></div>
+                        <div class="col-md-4 mb-3"><div class="carte"><h5>Systèmes</h5><p>Debian, OCS Inventory</p></div></div>
+                        <div class="col-md-4 mb-3"><div class="carte"><h5>Outils</h5><p>Git, GitHub, NetBeans</p></div></div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="realisations">
+                <div class="container">
+                    <h2>Réalisations professionnelles</h2>
+                    <div class="row">
+                        <div class="col-md-4 mb-3"><div class="carte"><h5>Portfolio web</h5><p>Site réalisé en HTML, CSS et Bootstrap.</p></div></div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="contact">
+                <div class="container">
+                    <h2>Contact</h2>
+                    <p>Ville : à compléter</p>
+                    <p>Email : à compléter</p>
+                    <p>GitHub : <a href="https://github.com/Kerian95">github.com/Kerian95</a></p>
+                </div>
+            </section>
+
+        </main>
 
         <!-- Optional JavaScript; choose one of the two! -->
 
@@ -58,7 +131,44 @@
                 }, 5500);
             });
         </script>
+        <script>
+            var accueil = document.getElementById("accueil");
+            var menu = document.getElementById("menu");
+            var site = document.getElementById("site");
 
+            function afficherSite() {
+                accueil.classList.add("sortie");
+                setTimeout(function () {
+                    accueil.style.display = "none";
+                    site.classList.add("affiche");
+                    menu.classList.add("visible");
+                    setTimeout(function () {
+                        site.classList.add("visible");
+                    }, 50);
+                    window.scrollTo(0, 0);
+                }, 800);
+            }
+
+            function afficherAccueil() {
+                site.classList.remove("visible", "affiche");
+                menu.classList.remove("visible");
+                accueil.style.display = "flex";
+                setTimeout(function () {
+                    accueil.classList.remove("sortie");
+                }, 50);
+                window.scrollTo(0, 0);
+            }
+
+            document.getElementById("btn-savoir").addEventListener("click", function (e) {
+                e.preventDefault();
+                afficherSite();
+            });
+
+            document.getElementById("retour-accueil").addEventListener("click", function (e) {
+                e.preventDefault();
+                afficherAccueil();
+            });
+        </script>
 
     </body>
 </html>
