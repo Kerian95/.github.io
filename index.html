@@ -15,6 +15,7 @@
         <link rel="icon" href="favicon.ico">
     </head>
     <body>
+        <div id="curseur"></div>
         <nav id="menu" class="navbar navbar-expand-lg navbar-dark fixed-top">
             <div class="container">
                 <a class="navbar-brand" href="#" id="retour-accueil">Kerian G</a>
@@ -169,6 +170,21 @@
                 afficherAccueil();
             });
         </script>
+        <script>
+            var curseur = document.getElementById("curseur");
 
+            document.addEventListener("mousemove", function (e) {
+                curseur.style.left = e.clientX + "px";
+                curseur.style.top = e.clientY + "px";
+            });
+
+            document.addEventListener("mouseover", function (e) {
+                if (e.target.closest("a, button, .carte")) {
+                    curseur.classList.add("grand");
+                } else {
+                    curseur.classList.remove("grand");
+                }
+            });
+        </script>
     </body>
 </html>
