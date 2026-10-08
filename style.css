@@ -148,10 +148,15 @@ html {
 }
 #menu .nav-link {
     color: var(--texte);
-    transition: transform 0.3s, color 0.3s;
+    border: 2px solid var(--orange);
+    border-radius: 12px;
+    padding: 6px 16px;
+    margin: 0 6px;
+    transition: transform 0.3s, background-color 0.3s, color 0.3s;
 }
 #menu .nav-link:hover {
-    color: var(--orange);
+    background-color: var(--orange);
+    color: var(--noir);
     transform: scale(1.1);
 }
 
